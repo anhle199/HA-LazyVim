@@ -168,3 +168,99 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+
+-- local Utils = require("core.utils")
+-- local map = Utils.map
+-- local noremap = Utils.noremap
+-- local exprmap = Utils.exprmap
+
+-- local Constants = require("core.constants")
+-- local NORMAL_MODE = Constants.VIM_MODES.NORMAL
+-- local INSERT_MODE = Constants.VIM_MODES.INSERT
+-- local VISUAL_MODE = Constants.VIM_MODES.VISUAL
+-- local VISUAL_SELECT_MODE = Constants.VIM_MODES.VISUAL_SELECT
+
+-- -- Remap space as leader key
+-- -- Modes: Normal, Visual, Select, Operator-pending
+-- -- <Nop>: do nothing (useful in mappings)
+-- -- noremap("", "<space>", "<nop>")
+
+-- noremap(INSERT_MODE, "jk", "<esc>")
+
+-- -- Clear search with <esc>
+-- map({ NORMAL_MODE, INSERT_MODE }, "<esc>", "<cmd>noh<cr><esc>")
+
+-- -- Reload configuration without restart nvim
+-- noremap(NORMAL_MODE, "<leader>r", ":so %<CR>")
+
+-- -- Better delete one character using "x"
+-- noremap(NORMAL_MODE, VISUAL_MODE, '"_x')
+
+-- -- Enable backspace to delete selected area
+-- noremap(VISUAL_SELECT_MODE, "<BS>", '"_d')
+
+-- -- Better paste
+-- noremap(VISUAL_SELECT_MODE, "p", '"_dP')
+
+-- -- Copy to system clippboard
+-- noremap({ NORMAL_MODE, VISUAL_SELECT_MODE }, "<leader>y", '"+y')
+
+-- -- better up/down
+-- exprmap(NORMAL_MODE, "j", "v:count == 0 ? 'gj' : 'j'")
+-- exprmap(NORMAL_MODE, "k", "v:count == 0 ? 'gk' : 'k'")
+
+-- -- Move to window using the <ctrl> hjkl keys
+-- -- map(NORMAL_MODE, "<C-h>", "<C-w>h")
+-- -- map(NORMAL_MODE, "<C-j>", "<C-w>j")
+-- -- map(NORMAL_MODE, "<C-k>", "<C-w>k")
+-- -- map(NORMAL_MODE, "<C-l>", "<C-w>l")
+
+-- -- Resize window using <ctrl> arrow keys
+-- map(NORMAL_MODE, "<C-Up>", "<cmd>resize +2<cr>")
+-- map(NORMAL_MODE, "<C-Down>", "<cmd>resize -2<cr>")
+-- map(NORMAL_MODE, "<C-Left>", "<cmd>vertical resize -2<cr>")
+-- map(NORMAL_MODE, "<C-Right>", "<cmd>vertical resize +2<cr>")
+
+-- -- buffers
+-- -- if Utils.has("bufferline.nvim") then
+-- --   map(NORMAL_MODE, "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
+-- --   map(NORMAL_MODE, "<Tab>", "<cmd>BufferLineCycleNext<cr>")
+-- -- else
+-- --   map(NORMAL_MODE, "<S-Tab>", "<cmd>bprevious<cr>")
+-- --   map(NORMAL_MODE, "<Tab>", "<cmd>bnext<cr>")
+-- -- end
+
+-- -- map({ NORMAL_MODE, VISUAL_MODE }, "gw", "*N", { desc = "Search word under cursor" })
+
+-- -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+-- -- next search result
+-- exprmap({ NORMAL_MODE, VISUAL_MODE, "o" }, "n", "'Nn'[v:searchforward]")
+-- exprmap({ NORMAL_MODE, VISUAL_MODE, "o" }, "N", "'nN'[v:searchforward]")
+
+-- map(NORMAL_MODE, "<leader>w", "<cmd>w<cr>")
+-- map(NORMAL_MODE, "<leader>q", "<cmd>q<cr>")
+
+-- -- better indenting
+-- map(VISUAL_SELECT_MODE, "<", "<gv")
+-- map(VISUAL_SELECT_MODE, ">", ">gv")
+
+-- -- move lines
+-- map(VISUAL_SELECT_MODE, "J", ":m '>+1<cr>gv=gv")
+-- map(VISUAL_SELECT_MODE, "K", ":m '<-2<cr>gv=gv")
+
+-- -- toggle options
+-- --map(NORMAL_MODE, "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+-- --map(NORMAL_MODE, "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
+-- --map(NORMAL_MODE, "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
+-- --map(NORMAL_MODE, "<leader>ul", function() Util.toggle("relativenumber", true) Util.toggle("number") end, { desc = "Toggle Line Numbers" })
+-- --map(NORMAL_MODE, "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+-- --local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+-- --map(NORMAL_MODE, "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
+
+-- noremap(NORMAL_MODE, "<leader>m", ":Format<CR>")
+
+-- -- highlights under cursor
+-- if vim.fn.has("nvim-0.9.0") == 1 then
+--   map(NORMAL_MODE, "<leader>ui", vim.show_pos)
+-- end
