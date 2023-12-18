@@ -265,6 +265,7 @@ function M.init()
   -- this is needed to make sure options will be correctly applied
   -- after installing missing plugins
   M.load("options")
+  M.load("keymaps")
 
   Util.plugin.setup()
   M.json.load()
