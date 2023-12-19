@@ -230,10 +230,12 @@ function M.load(name)
     end
   end
   -- always load lazyvim, then user file
+  -- it always load lazyvim because this profile is directly cloned from https://github.com/LazyVim/LazyVim
   if M.defaults[name] or name == "options" then
     _load("lazyvim.config." .. name)
   end
   -- _load("config." .. name)
+
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
     vim.cmd([[do VimResized]])
@@ -265,7 +267,6 @@ function M.init()
   -- this is needed to make sure options will be correctly applied
   -- after installing missing plugins
   M.load("options")
-  M.load("keymaps")
 
   Util.plugin.setup()
   M.json.load()

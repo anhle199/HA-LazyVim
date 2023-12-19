@@ -16,8 +16,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
-
-require("lazy").setup({
+local opts = {
   spec = {
     { import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.lang.java" },
@@ -76,4 +75,7 @@ require("lazy").setup({
       },
     },
   },
-})
+}
+
+require("lazy").setup(opts)
+require("lazyvim").setup(opts)
